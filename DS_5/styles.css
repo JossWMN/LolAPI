@@ -1,0 +1,192 @@
+/*  BASE LoL */
+body {
+    margin: 0;
+    background-color: #0a0a0a;
+    color: #e5d9b5;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* BANNER */
+.banner img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* NAVBAR */
+.navbar {
+    background-color: #111;
+    border-bottom: 2px solid #b9922c;
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    gap: 40px;
+}
+
+.navbar a {
+    color: #c8b377;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    background-color: #b9922c;
+    color: #0a0a0a;
+}
+
+/* CONTENEDOR DE NOTICIAS */
+.news-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 40px;
+}
+
+/* TARJETAS */
+.news-item {
+    background-color: #1b1b1b;
+    border: 2px solid #b9922c;
+    width: 30%;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.news-item h2 {
+    margin-bottom: 15px;
+    color: #e5cc78;
+}
+
+/* TARJETA DE VIDEO  */
+.video-item {
+    width: 38%; 
+}
+
+/* IMAGEN*/
+.news-img {
+    width: 100%;
+    height: 180px;
+    background-color: #3a3a3a;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.news-img:hover {
+    transform: scale(1.01);
+}
+
+/* VIDEO*/
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    margin-bottom: 20px;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* FOOTER
+.footer {
+    text-align: center;
+    padding: 20px;
+    color: #b9922c;
+    font-size: 18px;
+} */
+.video-thumbnail {
+    width: 95%;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.video-thumbnail:hover {
+    transform: scale(1.03);
+}
+
+.video-link {
+    display: block;
+    margin-bottom: 20px;
+}
+/* SOBRE NOSOTROS */
+.about-section {
+    padding: 60px 40px;
+    background-color: #0a0a0a;
+    color: #e5d9b5;
+    border-top: 2px solid #b9922c;
+    text-align: center;
+}
+
+.about-section h2 {
+    font-size: 32px;
+    color: #e5cc78;
+    border-bottom: 2px solid #b9922c;
+    display: inline-block;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+/* CONTENEDOR DE LAS 5 TARJETAS */
+.team-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: nowrap; /* igual que el boceto */
+}
+
+/* TARJETAS */
+.team-card {
+    background-color: #1b1b1b;
+    border: 2px solid #b9922c;
+    border-radius: 10px;
+    width: 18%;
+    padding: 20px;
+    text-align: center;
+}
+
+/* FOTO */
+.team-photo {
+    width: 100%;
+    height: 180px;
+    background-color: #3a3a3a;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.photo-integrantes{
+    width: 100%;
+    height: 180px;
+    border-radius: 8px;
+}
+
+/* NOMBRE */
+.team-card h3 {
+    color: #e5cc78;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* TEXTO */
+.team-card p {
+    margin: 5px 0;
+    font-size: 15px;
+}
+
