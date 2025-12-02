@@ -149,7 +149,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 30px;
-    flex-wrap: nowrap; /* igual que el boceto */
+    flex-wrap: nowrap; 
 }
 
 /* TARJETAS */
@@ -263,21 +263,21 @@ body {
     cursor: pointer;
 }
 
-/* ===========================
+/* 
     TARJETAS FLIP DE CAMPEONES
-=========================== */
+ */
 
 .card {
     background: transparent;
     width: 22%;
-    height: 380px;
+    height: 600px;
     perspective: 1000px;
     cursor: pointer;
     border: #1b1b1b;
 }
 
 .card-inner {
-    /* position: relative; */
+    position: relative;
     width: 100%;
     height: 100%;
     transform-style: preserve-3d;
@@ -301,7 +301,7 @@ body {
 
 .card-front img {
     width: 100%;
-    height: 60%;
+    height: 90%;
     object-fit: cover;
 }
 
@@ -323,7 +323,7 @@ body {
 }
 
 .card-back h3 {
-    margin-top: 0;
+    margin-top: 10px;
     color: #e5cc78;
     font-size: 20px;
 }
@@ -355,4 +355,31 @@ body {
     margin: 0;
     font-size: 14px;
     color: #d7c38a;
+}
+/* NOMBRE EN EL FRENTE (solo abajo de la imagen) */
+.front-name {
+    width: 100%;
+    background: #1b1b1b;
+    color: #e5cc78;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    padding: 12px 0;
+    border-top: 2px solid #b9922c;
+}
+
+/* Ajustar imagen grande */
+.card-front img {
+    width: 100%;
+    height: 85%;
+    object-fit: cover;
+}
+
+/* Texto del back */
+.card-back .lore {
+    font-size: 14px;
+    padding: 0 15px;
+    margin-bottom: 15px;
+    color: #c8b377;
+    text-align: justify;
 }

@@ -8,24 +8,24 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<header class="banner">
-    <img src="image/banner.png" alt="Banner">
-</header>
-
-<nav class="navbar">
-    <ul>
-        <li><a href="index.html">INICIO</a></li>
-        <li><a class="active" href="champions.html">CHAMPIONS</a></li>
-        <li><a href="player.html">PLAYER</a></li>
-        <li><a href="items.html">ITEMS</a></li>
-        <li><a href="#sobre-nosotros">SOBRE NOSOTROS</a></li>
-    </ul>
-</nav>
-
 <body>
+    <!-- BANNER -->
+    <header class="banner">
+        <img src="image/banner.png" alt="Banner">
+    </header>
 
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">INICIO</a></li>
+            <li><a class="active" href="champions.html">CHAMPIONS</a></li>
+            <li><a href="player.html">PLAYER</a></li>
+            <li><a href="items.html">ITEMS</a></li>
+            <li><a href="#sobre-nosotros">SOBRE NOSOTROS</a></li>
+        </ul>
+    </nav>
 
-    <!-- BUSQUEDA -->
+    <!-- BUSQUEDA Y FILTRO -->
     <div class="busqueda">
         <div class="search-box">
             <input type="text" id="searchInput" placeholder="Buscar campeón...">
@@ -37,151 +37,73 @@
             <option value="fighter">Luchador</option>
             <option value="mage">Mago</option>
             <option value="assassin">Asesino</option>
+            <option value="tank">Tanque</option>
+            <option value="marksman">Tirador</option>
             <option value="support">Soporte</option>
         </select>
     </div>
 
-    <!-- CONTENEDOR -->
-    <div class="champions-container">
+    <!-- CONTENEDOR DINÁMICO -->
+    <div class="champions-container"></div>
 
-        <!-- AATROX -->
-    <div class="card champ-card" data-name="aatrox" data-role="fighter">
-            <div class="card-inner">
-                <div class="card-front card-face">
-                    <img src="image/Campeones/Aatrox/aatrox.png" alt="Aatrox">
-                    <h3>Aatrox</h3>
-                    <p class="quote">"El Destructor de Mundos"</p>
-                    <p class="desc">Un guerrero oscuro y antiguo que busca destruir toda la vida.</p>
-                </div>
-                <div class="card-back card-face">
-                    <h3>Habilidades</h3>
-                    <div class="ability">
-                        <img src="image/Campeones/Aatrox/qAtatrox.png" alt="Q">
-                        <p>La Espada Darkin</p>
-                    </div>
-                    <div class="ability">
-                        <img src="image/Campeones/Aatrox/qAtatrox.png" alt="W">
-                        <p>Cadenas Infernales</p>
-                    </div>
-                    <div class="ability">
-                        <img src="image/Campeones/Aatrox/qAtatrox.png" alt="E">
-                        <p>Avance Umbrío</p>
-                    </div>
-                    <div class="ability">
-                        <img src="image/Campeones/Aatrox/qAtatrox.png" alt="R">
-                        <p>Destructor de Mundos</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- AHRI -->
-        <div class="card champ-card" data-name="aatrox" data-role="fighter">
-            <div class="card-inner">
-                <div class="card-front card-face">
-                    <img src="image/Campeones/Aatrox/aatrox.png" alt="Aatrox">
-                    <h3>Aatrox</h3>
-                    <p class="quote">"El Destructor de Mundos"</p>
-                    <p class="desc">Un guerrero oscuro y antiguo que busca destruir toda la vida.</p>
-                </div>
-                <div class="card-back card-face">
-                    <h3>Habilidades</h3>
-                    <div class="ability">
-                        <img src="image/Campeones/Aatrox/qAtatrox.png" alt="Q">
-                        <p>La Espada Darkin</p>
-                    </div>
-                    <div class="ability">
-                        <img src="image/Campeones/Aatrox/qAtatrox.png" alt="W">
-                        <p>Cadenas Infernales</p>
-                    </div>
-                    <div class="ability">
-                        <img src="image/Campeones/Aatrox/qAtatrox.png" alt="E">
-                        <p>Avance Umbrío</p>
-                    </div>
-                    <div class="ability">
-                        <img src="image/Campeones/Aatrox/qAtatrox.png" alt="R">
-                        <p>Destructor de Mundos</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- EKKO -->
-        <div class="card champ-card" data-name="aatrox" data-role="fighter">
-            <div class="card-inner">
-                <div class="card-front card-face">
-                    <img src="image/Campeones/Aatrox/aatrox.png" alt="Aatrox">
-                    <h3>Aatrox</h3>
-                    <p class="quote">"El Destructor de Mundos"</p>
-                    <p class="desc">Un guerrero oscuro y antiguo que busca destruir toda la vida.</p>
-                </div>
-                <div class="card-back card-face">
-                    <h3>Habilidades</h3>
-                    <div class="ability">
-                        <img src="image/Campeones/Aatrox/qAtatrox.png" alt="Q">
-                        <p>La Espada Darkin</p>
-                    </div>
-                    <div class="ability">
-                        <img src="image/Campeones/Aatrox/qAtatrox.png" alt="W">
-                        <p>Cadenas Infernales</p>
-                    </div>
-                    <div class="ability">
-                        <img src="image/Campeones/Aatrox/qAtatrox.png" alt="E">
-                        <p>Avance Umbrío</p>
-                    </div>
-                    <div class="ability">
-                        <img src="image/Campeones/Aatrox/qAtatrox.png" alt="R">
-                        <p>Destructor de Mundos</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- LUX -->
-        <div class="card champ-card" data-name="aatrox" data-role="fighter">
-            <div class="card-inner">
-                <div class="card-front card-face">
-                    <img src="image/Campeones/Aatrox/aatrox.png" alt="Aatrox">
-                    <h3>Aatrox</h3>
-                    <p class="quote">"El Destructor de Mundos"</p>
-                    <p class="desc">Un guerrero oscuro y antiguo que busca destruir toda la vida.</p>
-                </div>
-                <div class="card-back card-face">
-                    <h3>Habilidades</h3>
-                    <div class="ability">
-                        <img src="image/Campeones/Aatrox/qAtatrox.png" alt="Q">
-                        <p>La Espada Darkin</p>
-                    </div>
-                    <div class="ability">
-                        <img src="image/Campeones/Aatrox/qAtatrox.png" alt="W">
-                        <p>Cadenas Infernales</p>
-                    </div>
-                    <div class="ability">
-                        <img src="image/Campeones/Aatrox/qAtatrox.png" alt="E">
-                        <p>Avance Umbrío</p>
-                    </div>
-                    <div class="ability">
-                        <img src="image/Campeones/Aatrox/qAtatrox.png" alt="R">
-                        <p>Destructor de Mundos</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-    <!-- SCRIPT -->
+    <!-- SCRIPT PRINCIPAL -->
     <script>
-        // FLIP CARD
-        document.querySelectorAll('.card').forEach(card => {
-            card.addEventListener('click', () => {
-                card.classList.toggle('flip');
-            });
-        });
+        const VERSION = "14.1.1";
 
-        // BUSCADOR
+        async function cargarCampeones() {
+            const contenedor = document.querySelector(".champions-container");
+            contenedor.innerHTML = "";
+
+            const res = await fetch(`https://ddragon.leagueoflegends.com/cdn/${VERSION}/data/es_ES/champion.json`);
+            const data = await res.json();
+            const lista = Object.values(data.data);
+
+            for (let champ of lista) {
+                const infoRes = await fetch(`https://ddragon.leagueoflegends.com/cdn/${VERSION}/data/es_ES/champion/${champ.id}.json`);
+                const infoData = await infoRes.json();
+                const info = infoData.data[champ.id];
+
+                const habilidades = info.spells.map(spell => `
+                    <div class="ability">
+                        <img src="https://ddragon.leagueoflegends.com/cdn/${VERSION}/img/spell/${spell.image.full}">
+                        <p>${spell.name}</p>
+                    </div>
+                `).join("");
+
+                const tarjeta = `
+                    <div class="card champ-card" data-name="${champ.id.toLowerCase()}" data-role="${champ.tags[0]?.toLowerCase()}">
+                        <div class="card-inner">
+                            <div class="card-front card-face">
+                                <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champ.id}_0.jpg">
+                                <div class="front-name">${champ.name}</div>
+                            </div>
+
+
+                            <div class="card-back card-face">
+                                <h3>${champ.title}</h3>
+                                <p class="lore">${info.lore.substring(0,475)}...</p>
+                                <h3>Habilidades</h3>
+                                ${habilidades}
+                            </div>
+
+                        </div>
+                    </div>
+                `;
+
+                contenedor.innerHTML += tarjeta;
+            }
+
+            activarFlip();
+        }
+
+        function activarFlip() {
+            document.querySelectorAll(".card").forEach(card => {
+                card.addEventListener("click", () => {
+                    card.classList.toggle("flip");
+                });
+            });
+        }
+
         function buscarCampeon() {
             let input = document.getElementById("searchInput").value.toLowerCase();
             document.querySelectorAll(".champ-card").forEach(card => {
@@ -190,18 +112,15 @@
             });
         }
 
-        // FILTRO POR ROL
         function filtrarRol() {
             let rol = document.getElementById("roleFilter").value;
 
             document.querySelectorAll(".champ-card").forEach(card => {
-                if (rol === "all" || card.dataset.role === rol) {
-                    card.style.display = "block";
-                } else {
-                    card.style.display = "none";
-                }
+                card.style.display = (rol === "all" || card.dataset.role === rol) ? "block" : "none";
             });
         }
+
+        cargarCampeones();
     </script>
 
 </body>
