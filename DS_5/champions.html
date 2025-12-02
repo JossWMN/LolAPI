@@ -1,70 +1,209 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Champions | LOL Database</title>
+    <title>Campeones LoL</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
+<header class="banner">
+    <img src="image/banner.png" alt="Banner">
+</header>
+
+<nav class="navbar">
+    <ul>
+        <li><a href="index.html">INICIO</a></li>
+        <li><a class="active" href="champions.html">CHAMPIONS</a></li>
+        <li><a href="player.html">PLAYER</a></li>
+        <li><a href="items.html">ITEMS</a></li>
+        <li><a href="#sobre-nosotros">SOBRE NOSOTROS</a></li>
+    </ul>
+</nav>
+
 <body>
 
-    <!-- ===========================
-            BANNER SUPERIOR
-    ============================ -->
-    <header class="banner">
-        <img src="image/banner.png" alt="Banner del sitio">
-    </header>
 
-    <!-- ===========================
-            NAVEGACIÓN
-    ============================ -->
-    <nav class="navbar">
-        <ul>
-            <li><a href="index.html">INICIO</a></li>
-            <li><a href="champions.html">CHAMPIONS</a></li>
-            <li><a href="player.html">PLAYER</a></li>
-            <li><a href="items.html">ITEMS</a></li>
-            <li><a href="index.html#sobre-nosotros">SOBRE NOSOTROS</a></li>
-        </ul>
-    </nav>
-
-    <!-- ===========================
-            FILTRO + BUSCADOR
-    ============================ -->
-    <section class="busqueda">
-        <div class="filtro">
-            <select id="filtro-rol">
-                <option value="all">Filtro</option>
-                <option value="fighter">Fighter</option>
-                <option value="tank">Tank</option>
-                <option value="mage">Mage</option>
-                <option value="assassin">Assassin</option>
-                <option value="marksman">Marksman</option>
-                <option value="support">Support</option>
-            </select>
-        </div>
-
+    <!-- BUSQUEDA -->
+    <div class="busqueda">
         <div class="search-box">
-            <input type="text" id="searchChampion" placeholder="Buscar campeón...">
-            <button id="btnSearch">🔍</button>
+            <input type="text" id="searchInput" placeholder="Buscar campeón...">
+            <button onclick="buscarCampeon()">Buscar</button>
         </div>
-    </section>
 
-    <!-- ===========================
-            LISTA/GALERÍA DE CAMPEONES
-    ============================ -->
-    <main class="champions-container">
-        <!-- Aquí se cargarán dinámicamente los campeones desde la API -->
-        <!-- Ejemplo de tarjeta de campeón: -->
-        
-        <!--  
-        <div class="champ-card">
-            <img src="ruta-del-campeon" alt="Nombre del campeón">
-            <h3>Ahri</h3>
+        <select id="roleFilter" onchange="filtrarRol()">
+            <option value="all">Todos los roles</option>
+            <option value="fighter">Luchador</option>
+            <option value="mage">Mago</option>
+            <option value="assassin">Asesino</option>
+            <option value="support">Soporte</option>
+        </select>
+    </div>
+
+    <!-- CONTENEDOR -->
+    <div class="champions-container">
+
+        <!-- AATROX -->
+    <div class="card champ-card" data-name="aatrox" data-role="fighter">
+            <div class="card-inner">
+                <div class="card-front card-face">
+                    <img src="image/Campeones/Aatrox/aatrox.png" alt="Aatrox">
+                    <h3>Aatrox</h3>
+                    <p class="quote">"El Destructor de Mundos"</p>
+                    <p class="desc">Un guerrero oscuro y antiguo que busca destruir toda la vida.</p>
+                </div>
+                <div class="card-back card-face">
+                    <h3>Habilidades</h3>
+                    <div class="ability">
+                        <img src="image/Campeones/Aatrox/qAtatrox.png" alt="Q">
+                        <p>La Espada Darkin</p>
+                    </div>
+                    <div class="ability">
+                        <img src="image/Campeones/Aatrox/qAtatrox.png" alt="W">
+                        <p>Cadenas Infernales</p>
+                    </div>
+                    <div class="ability">
+                        <img src="image/Campeones/Aatrox/qAtatrox.png" alt="E">
+                        <p>Avance Umbrío</p>
+                    </div>
+                    <div class="ability">
+                        <img src="image/Campeones/Aatrox/qAtatrox.png" alt="R">
+                        <p>Destructor de Mundos</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        -->
-    </main>
+
+
+        <!-- AHRI -->
+        <div class="card champ-card" data-name="aatrox" data-role="fighter">
+            <div class="card-inner">
+                <div class="card-front card-face">
+                    <img src="image/Campeones/Aatrox/aatrox.png" alt="Aatrox">
+                    <h3>Aatrox</h3>
+                    <p class="quote">"El Destructor de Mundos"</p>
+                    <p class="desc">Un guerrero oscuro y antiguo que busca destruir toda la vida.</p>
+                </div>
+                <div class="card-back card-face">
+                    <h3>Habilidades</h3>
+                    <div class="ability">
+                        <img src="image/Campeones/Aatrox/qAtatrox.png" alt="Q">
+                        <p>La Espada Darkin</p>
+                    </div>
+                    <div class="ability">
+                        <img src="image/Campeones/Aatrox/qAtatrox.png" alt="W">
+                        <p>Cadenas Infernales</p>
+                    </div>
+                    <div class="ability">
+                        <img src="image/Campeones/Aatrox/qAtatrox.png" alt="E">
+                        <p>Avance Umbrío</p>
+                    </div>
+                    <div class="ability">
+                        <img src="image/Campeones/Aatrox/qAtatrox.png" alt="R">
+                        <p>Destructor de Mundos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- EKKO -->
+        <div class="card champ-card" data-name="aatrox" data-role="fighter">
+            <div class="card-inner">
+                <div class="card-front card-face">
+                    <img src="image/Campeones/Aatrox/aatrox.png" alt="Aatrox">
+                    <h3>Aatrox</h3>
+                    <p class="quote">"El Destructor de Mundos"</p>
+                    <p class="desc">Un guerrero oscuro y antiguo que busca destruir toda la vida.</p>
+                </div>
+                <div class="card-back card-face">
+                    <h3>Habilidades</h3>
+                    <div class="ability">
+                        <img src="image/Campeones/Aatrox/qAtatrox.png" alt="Q">
+                        <p>La Espada Darkin</p>
+                    </div>
+                    <div class="ability">
+                        <img src="image/Campeones/Aatrox/qAtatrox.png" alt="W">
+                        <p>Cadenas Infernales</p>
+                    </div>
+                    <div class="ability">
+                        <img src="image/Campeones/Aatrox/qAtatrox.png" alt="E">
+                        <p>Avance Umbrío</p>
+                    </div>
+                    <div class="ability">
+                        <img src="image/Campeones/Aatrox/qAtatrox.png" alt="R">
+                        <p>Destructor de Mundos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- LUX -->
+        <div class="card champ-card" data-name="aatrox" data-role="fighter">
+            <div class="card-inner">
+                <div class="card-front card-face">
+                    <img src="image/Campeones/Aatrox/aatrox.png" alt="Aatrox">
+                    <h3>Aatrox</h3>
+                    <p class="quote">"El Destructor de Mundos"</p>
+                    <p class="desc">Un guerrero oscuro y antiguo que busca destruir toda la vida.</p>
+                </div>
+                <div class="card-back card-face">
+                    <h3>Habilidades</h3>
+                    <div class="ability">
+                        <img src="image/Campeones/Aatrox/qAtatrox.png" alt="Q">
+                        <p>La Espada Darkin</p>
+                    </div>
+                    <div class="ability">
+                        <img src="image/Campeones/Aatrox/qAtatrox.png" alt="W">
+                        <p>Cadenas Infernales</p>
+                    </div>
+                    <div class="ability">
+                        <img src="image/Campeones/Aatrox/qAtatrox.png" alt="E">
+                        <p>Avance Umbrío</p>
+                    </div>
+                    <div class="ability">
+                        <img src="image/Campeones/Aatrox/qAtatrox.png" alt="R">
+                        <p>Destructor de Mundos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    <!-- SCRIPT -->
+    <script>
+        // FLIP CARD
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', () => {
+                card.classList.toggle('flip');
+            });
+        });
+
+        // BUSCADOR
+        function buscarCampeon() {
+            let input = document.getElementById("searchInput").value.toLowerCase();
+            document.querySelectorAll(".champ-card").forEach(card => {
+                let nombre = card.dataset.name;
+                card.style.display = nombre.includes(input) ? "block" : "none";
+            });
+        }
+
+        // FILTRO POR ROL
+        function filtrarRol() {
+            let rol = document.getElementById("roleFilter").value;
+
+            document.querySelectorAll(".champ-card").forEach(card => {
+                if (rol === "all" || card.dataset.role === rol) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+    </script>
 
 </body>
+
 </html>
