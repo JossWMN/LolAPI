@@ -24,25 +24,194 @@
 </nav>
 
 <section class="busqueda">
-    <select>
-        <option>Filtro</option>
+    
+    <!-- FILTROS -->
+    <select id="itemFilter">
+        <option value="all">Todos</option>
+        <option value="ad">Daño (AD)</option>
+        <option value="ap">Poder de habilidad (AP)</option>
+        <option value="tank">Tanque</option>
     </select>
 
+    <!-- BUSCADOR -->
     <div class="search-box">
-        <input type="text" placeholder="Buscar ítem...">
+        <input id="itemSearch" type="text" placeholder="Buscar ítem...">
         <button>🔍</button>
     </div>
 </section>
 
-<main class="items-grid">
-
-    <!-- Ejemplos de ítems. La API los llenará después. -->
-    <div class="item-card">
-        <div class="item-img"></div>
-        <p>Nombre del ítem</p>
-    </div>
-
+<main class="items-grid" id="itemsContainer">
+    <!-- Los ítems se generan aquí automáticamente -->
 </main>
+
+<!-- ============================= -->
+<!--     MODAL DETALLES ITEM      -->
+<!-- ============================= -->
+<div id="itemModal" class="modal">
+    <div class="modal-content">
+        <span id="closeModal" class="close">&times;</span>
+
+        <h2 id="modalItemName"></h2>
+
+        <img id="modalItemImg" src="" alt="Item">
+
+        <p id="modalItemDesc"></p>
+
+        <p class="price">
+            <strong>Precio:</strong> 
+            <span id="modalItemPrice"></span> oro
+        </p>
+    </div>
+</div>
+
+<!-- ============================= -->
+<!--            JAVASCRIPT         -->
+<!-- ============================= -->
+<script>
+const version = "14.23.1"; 
+const itemsURL = `https://ddragon.leagueoflegends.com/cdn/${version}/data/en_US/item.json`;
+const itemImgURL = `https://ddragon.leagueoflegends.com/cdn/${version}/img/item/`;
+
+const itemsContainer = document.getElementById("itemsContainer");
+const itemSearch = document.getElementById("itemSearch");
+const itemFilter = document.getElementById("itemFilter");
+
+let allItems = {};
+
+// =====================================
+//               CARGAR ITEMS
+// =====================================
+async function loadItems() {
+    try {
+        const res = await fetch(itemsURL);
+        const data = await res.json();
+
+        allItems = data.data;
+        displayItems(allItems);
+
+    } catch (error) {
+        console.error("Error cargando ítems:", error);
+    }
+}
+
+// =====================================
+//          MOSTRAR ÍTEMS
+// =====================================
+function displayItems(items) {
+    itemsContainer.innerHTML = "";
+
+    Object.entries(items).forEach(([id, item]) => {
+        const card = document.createElement("div");
+        card.classList.add("item-card");
+
+        card.innerHTML = `
+            <div class="item-img">
+                <img src="${itemImgURL}${item.image.full}" alt="${item.name}">
+            </div>
+            <p>${item.name}</p>
+        `;
+
+        itemsContainer.appendChild(card);
+    });
+}
+
+
+// =====================================
+//          FILTRO (AD / AP / TANQUE)
+// =====================================
+itemFilter.addEventListener("change", (e) => {
+
+    const filter = e.target.value;
+
+    let filteredItems = {};
+
+    if (filter === "all") {
+        filteredItems = allItems;
+    } else {
+        filteredItems = Object.fromEntries(
+            Object.entries(allItems).filter(([id, item]) => {
+
+                const stats = item.stats || {};
+
+                if (filter === "ad") {
+                    return stats.FlatPhysicalDamageMod > 0;
+                }
+
+                if (filter === "ap") {
+                    return stats.FlatMagicDamageMod > 0;
+                }
+
+                if (filter === "tank") {
+                    return (
+                        stats.FlatArmorMod > 0 ||
+                        stats.FlatSpellBlockMod > 0 ||
+                        stats.FlatHPPoolMod > 0
+                    );
+                }
+
+                return true;
+            })
+        );
+    }
+
+    displayItems(filteredItems);
+});
+
+
+// =====================================
+//             BUSCADOR
+// =====================================
+itemSearch.addEventListener("input", (e) => {
+    const text = e.target.value.toLowerCase();
+
+    const filteredItems = Object.fromEntries(
+        Object.entries(allItems).filter(([id, item]) =>
+            item.name.toLowerCase().includes(text)
+        )
+    );
+
+    displayItems(filteredItems);
+});
+
+
+// =====================================
+//         MODAL DETALLES ITEM
+// =====================================
+const itemModal = document.getElementById("itemModal");
+const closeModal = document.getElementById("closeModal");
+
+const modalItemName = document.getElementById("modalItemName");
+const modalItemImg = document.getElementById("modalItemImg");
+const modalItemDesc = document.getElementById("modalItemDesc");
+const modalItemPrice = document.getElementById("modalItemPrice");
+
+itemsContainer.addEventListener("click", (e) => {
+    const card = e.target.closest(".item-card");
+    if (!card) return;
+
+    const itemName = card.querySelector("p").textContent;
+    const item = Object.values(allItems).find(i => i.name === itemName);
+
+    if (item) {
+        modalItemName.textContent = item.name;
+        modalItemImg.src = `${itemImgURL}${item.image.full}`;
+        modalItemDesc.innerHTML = item.description;
+        modalItemPrice.textContent = item.gold.total;
+
+        itemModal.style.display = "block";
+    }
+});
+
+closeModal.onclick = () => {
+    itemModal.style.display = "none";
+};
+
+window.onclick = (e) => {
+    if (e.target === itemModal) itemModal.style.display = "none";
+};
+
+loadItems();
+</script>
 
 </body>
 </html>
