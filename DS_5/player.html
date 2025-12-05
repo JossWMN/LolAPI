@@ -3,44 +3,343 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Player | LoLInsight</title>
     <link rel="stylesheet" href="styles.css">
+    <title>Player | LoLInsight</title>
+    <style>
+        /* perfil de jugador */
+        .perfil-of-player {
+            background-color: #2a2a4a;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .perfil-datos h2 {
+            color: #4d8ee1;
+        }
+        
+        .perfil-datos p {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+        
+        
+        /* Partidas */
+        .historial-partidas {
+            background-color: #2a2a4a;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .historial-partidas h3 {
+            color: #4d8ee1;
+            text-align: center;
+        }
+        
+        .partida-item {
+            background-color: #1a1a2e;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #3066be;
+        }
+        
+        .partida-item.ganada {
+            border-left-color: green;
+        }
+        
+        .partida-item.perdida {
+            border-left-color: red;
+        }
+        
+        .kda {
+            color: #ffcc00;
+            font-weight: bold;
+        }
+        
+        .cargando {
+            text-align: center;
+            color: #888;
+            padding: 20px;
+        }
+    </style>
 </head>
+<body class="body">
+<!-- BANNER -->
+    <header class="banner">
+        <img src="image/banner.png" alt="Banner">
+    </header>
 
-<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">INICIO</a></li>
+            <li><a class="active" href="champions.html">CHAMPIONS</a></li>
+            <li><a href="player.html">PLAYER</a></li>
+            <li><a href="items.html">ITEMS</a></li>
+            <li><a href="#sobre-nosotros">SOBRE NOSOTROS</a></li>
+        </ul>
+    </nav>
 
-<header class="banner">
-    <img src="image/banner.png" alt="Banner">
-</header>
+    <!-- Buscador -->
+<div class="busqueda">
+    <div class="search-box">
+        <input type="text" id="BuscarInput" placeholder="Nombre del jugador">
+        <input type="text" id="tagLineInput" placeholder="Etiqueta (ej: LAS)">
+        <button onclick="buscarJugador()">Buscar</button>
+    </div>
 
-<nav class="navbar">
-    <ul>
-        <li><a href="index.html">INICIO</a></li>
-        <li><a href="champions.html">CHAMPIONS</a></li>
-        <li><a class="active" href="player.html">PLAYER</a></li>
-        <li><a href="items.html">ITEMS</a></li>
-        <li><a href="index.html#sobre-nosotros">SOBRE NOSOTROS</a></li>
-    </ul>
-</nav>
+    <!-- Filtro de partidas -->
+    <select id="roleFiltro">
+        <option value="all">Todos</option>
+        <option value="solo">SoloQ</option>
+        <option value="flex">Flex</option>
+        <option value="draf">Normal</option>
+    </select>
+</div>
 
-<section class="player-search">
-    <input type="text" placeholder="Buscar jugador...">
-    <button>🔍</button>
-</section>
-
-<section class="player-info">
-    <div class="profile-img"></div>
-    <div class="profile-data">
-        <h2>Nombre del jugador</h2>
-        <p>Rango</p>
-        <p>Nivel</p>
+<!-- Perfil del jugador -->
+<section class="perfil-of-player">
+    <div class="perfil-img">
+        <img id="profileIcon" src="" alt="Icono">
+    </div>
+    <div class="perfil-datos">
+        <h2 id="playerGameName">Nombre</h2>
+        <p id="playerLevel">Nivel: 0</p>
+        <p id="playerRank">SoloQ: No hay rango</p>
+        <p id="playerFlex">Flex: No hay rango</p>
     </div>
 </section>
 
-<section class="match-history">
-    <h2>Historial de Partidas</h2>
-    <div class="history-container"></div>
+<!-- Historial de partidas -->
+<section class="historial-partidas" id="historialPartidas">
+    <h3>Últimas Partidas</h3>
+    <div id="partidasContainer">
+        <div class="cargando">Busca un jugador para ver sus partidas</div>
+    </div>
 </section>
 
+<script>
+    // API Key
+    const API_KEY = "RGAPI-8f5a37c9-3de4-40de-afed-c4b1a054d694";
+    
+    // Guardamos datos del jugador
+    let puuidJugador = null;
+    let region = "la2";
+    
+    // Función cuando apretas Buscar
+    async function buscarJugador() {
+        // Sacar lo que escribiste
+        const nombre = document.getElementById("BuscarInput").value;
+        const tag = document.getElementById("tagLineInput").value;
+        const filtro = document.getElementById("roleFiltro").value;
+        
+        // Ver si escribiste algo
+        if (!nombre || !tag) {
+            alert("Escribe nombre y etiqueta");
+            return;
+        }
+        
+        // Poner "cargando"
+        document.getElementById("playerGameName").textContent = "Buscando...";
+        document.getElementById("playerLevel").textContent = "Nivel: ...";
+        document.getElementById("playerRank").textContent = "SoloQ: ...";
+        document.getElementById("playerFlex").textContent = "Flex: ...";
+        
+        try {
+            // A - Buscar ID del jugador
+            puuidJugador = await buscarPUUID(nombre, tag);
+            
+            // B - Ver región
+            if (tag.toUpperCase() === "LAN") region = "la1";
+            else if (tag.toUpperCase() === "LAS") region = "la2";
+            else if (tag.toUpperCase() === "NA") region = "na1";
+            
+            // C - Obtener datos del jugador
+            const datosJugador = await obtenerDatosJugador(puuidJugador);
+            
+            // D - Obtener rango
+            const datosRango = await obtenerRango(datosJugador.id);
+            
+            // E - Mostrar todo
+            mostrarPerfil(nombre, tag, datosJugador, datosRango);
+            
+            // F - Obtener y mostrar partidas
+            const partidas = await obtenerPartidas(puuidJugador, filtro);
+            mostrarPartidas(partidas);
+            
+        } catch (error) {
+            alert("Error: " + error.message);
+            document.getElementById("playerGameName").textContent = "Error";
+        }
+    }
+    
+    // Buscar ID del jugador
+    async function buscarPUUID(nombre, tag) {
+        const url = `https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${nombre}/${tag}?api_key=${API_KEY}`;
+        
+        const respuesta = await fetch(url);
+        
+        if (!respuesta.ok) {
+            if (respuesta.status === 403) {
+                throw new Error("API Key mala");
+            }
+            throw new Error("Jugador no encontrado");
+        }
+        
+        const datos = await respuesta.json();
+        return datos.puuid;
+    }
+    
+    // Obtener datos del jugador
+    async function obtenerDatosJugador(puuid) {
+        const url = `https://${region}.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${puuid}?api_key=${API_KEY}`;
+        
+        const respuesta = await fetch(url);
+        if (!respuesta.ok) throw new Error("Error en datos");
+        
+        return await respuesta.json();
+    }
+    
+    // Obtener rango
+    async function obtenerRango(idJugador) {
+        const url = `https://${region}.api.riotgames.com/lol/league/v4/entries/by-summoner/${idJugador}?api_key=${API_KEY}`;
+        
+        const respuesta = await fetch(url);
+        if (!respuesta.ok) return [];
+        
+        return await respuesta.json();
+    }
+    
+    // Obtener partidas
+    async function obtenerPartidas(puuid, tipo) {
+        let url = "";
+        
+        if (tipo === "solo") {
+            url = `https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?type=ranked&count=3&api_key=${API_KEY}`;
+        } else if (tipo === "flex") {
+            url = `https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?type=ranked_flex&count=3&api_key=${API_KEY}`;
+        } else if (tipo === "draf") {
+            url = `https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?type=normal&count=3&api_key=${API_KEY}`;
+        } else {
+            url = `https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?count=3&api_key=${API_KEY}`;
+        }
+        
+        const respuesta = await fetch(url);
+        if (!respuesta.ok) return [];
+        
+        return await respuesta.json();
+    }
+    
+    // Mostrar perfil
+    function mostrarPerfil(nombre, tag, datosJugador, datosRango) {
+        // Mostrar nombre
+        document.getElementById("playerGameName").textContent = nombre + "#" + tag;
+        
+        // Mostrar nivel
+        document.getElementById("playerLevel").textContent = "Nivel: " + datosJugador.summonerLevel;
+        
+        // Mostrar icono SI EXISTE EL ELEMENTO
+        const icono = document.getElementById("profileIcon");
+        if (icono && datosJugador.profileIconId) {
+            icono.src = `https://ddragon.leagueoflegends.com/cdn/14.23.1/img/profileicon/${datosJugador.profileIconId}.png`;
+        }
+        
+        // Buscar rangos
+        let soloq = "Sin rango";
+        let flex = "Sin rango";
+        
+        // Si hay datos de rango
+        if (datosRango && datosRango.length > 0) {
+            for (let i = 0; i < datosRango.length; i++) {
+                const r = datosRango[i];
+                
+                // SoloQ
+                if (r.queueType === "RANKED_SOLO_5x5") {
+                    soloq = r.tier + " " + r.rank + " (" + r.leaguePoints + " LP)";
+                }
+                
+                // Flex
+                if (r.queueType === "RANKED_FLEX_SR") {
+                    flex = r.tier + " " + r.rank + " (" + r.leaguePoints + " LP)";
+                }
+            }
+        }
+        
+        // Mostrar rangos
+        document.getElementById("playerRank").textContent = "SoloQ: " + soloq;
+        document.getElementById("playerFlex").textContent = "Flex: " + flex;
+    }
+    
+    // Mostrar partidas
+    async function mostrarPartidas(idsPartidas) {
+        const container = document.getElementById("partidasContainer");
+        
+        if (!idsPartidas || idsPartidas.length === 0) {
+            container.innerHTML = '<div class="cargando">No hay partidas</div>';
+            return;
+        }
+        
+        let html = "";
+        
+        // Solo 2 partidas
+        for (let i = 0; i < 2 && i < idsPartidas.length; i++) {
+            try {
+                const partida = await obtenerDetallesPartida(idsPartidas[i]);
+                
+                if (partida) {
+                    // Buscar al jugador
+                    let jugador = null;
+                    for (let p of partida.info.participants) {
+                        if (p.puuid === puuidJugador) {
+                            jugador = p;
+                            break;
+                        }
+                    }
+                    
+                    if (jugador) {
+                        const ganada = jugador.win ? "ganada" : "perdida";
+                        
+                        html += `
+                            <div class="partida-item ${ganada}">
+                                <div><strong>${jugador.win ? 'GANÓ' : 'PERDIÓ'}</strong></div>
+                                <div>Campeón: ${jugador.championName}</div>
+                                <div class="kda">K/D/A: ${jugador.kills}/${jugador.deaths}/${jugador.assists}</div>
+                                <div>CS: ${jugador.totalMinionsKilled}</div>
+                            </div>
+                        `;
+                    }
+                }
+            } catch (e) {
+                console.log("Error partida:", e);
+            }
+        }
+        
+        container.innerHTML = html || '<div class="cargando">Error en partidas</div>';
+    }
+    
+    //  Obtener detalles de partida
+    async function obtenerDetallesPartida(matchId) {
+        const url = `https://americas.api.riotgames.com/lol/match/v5/matches/${matchId}?api_key=${API_KEY}`;
+        
+        const respuesta = await fetch(url);
+        if (!respuesta.ok) return null;
+        
+        return await respuesta.json();
+    }
+    
+    // Filtrar partidas
+    document.getElementById('roleFiltro').addEventListener('change', function() {
+        if (puuidJugador) {
+            const filtro = this.value;
+            obtenerPartidas(puuidJugador, filtro).then(mostrarPartidas);
+        }
+    });
+
+console.log("API Key:", API_KEY);
+console.log("Elemento icono existe:", document.getElementById("profileIcon"));
+
+</script>
 </body>
 </html>
