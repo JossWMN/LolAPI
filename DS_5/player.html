@@ -6,63 +6,112 @@
     <link rel="stylesheet" href="styles.css">
     <title>Player | LoLInsight</title>
     <style>
-        /* perfil de jugador */
-        .perfil-of-player {
-            background-color: #2a2a4a;
-            margin: 20px;
-            padding: 20px;
-            border-radius: 10px;
-        }
-        
-        .perfil-datos h2 {
-            color: #4d8ee1;
-        }
-        
-        .perfil-datos p {
-            font-size: 18px;
-            margin: 5px 0;
-        }
-        
-        
-        /* Partidas */
-        .historial-partidas {
-            background-color: #2a2a4a;
-            margin: 20px;
-            padding: 20px;
-            border-radius: 10px;
-        }
-        
-        .historial-partidas h3 {
-            color: #4d8ee1;
-            text-align: center;
-        }
-        
-        .partida-item {
-            background-color: #1a1a2e;
-            margin: 10px 0;
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 5px solid #3066be;
-        }
-        
-        .partida-item.ganada {
-            border-left-color: green;
-        }
-        
-        .partida-item.perdida {
-            border-left-color: red;
-        }
-        
-        .kda {
-            color: #ffcc00;
-            font-weight: bold;
-        }
-        
-        .cargando {
-            text-align: center;
-            color: #888;
-            padding: 20px;
-        }
+   /* Layout general */
+.contenedor-layout {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 35px;
+    width: 95%;
+    margin: 25px auto;
+}
+
+/* Perfil */
+.perfil-of-player {
+    width: 38%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.perfil-img img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: rgba(39, 6, 39, 0.297);
+    border: 3px solid #bfbfbf;
+}
+
+.perfil-datos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.perfil-datos h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: bold;
+    color: #c8b377;
+}
+
+.perfil-datos p {
+    margin: 3px 0;
+    color: #c8b377;
+}
+
+/* Historial */
+.historial-partidas {
+    width: 55%;
+    background: transparent;
+}
+
+.historial-partidas h3 {
+    text-align: center;
+    color: #c8b377;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#partidasContainer {
+    background: rgba(39, 6, 39, 0.297);
+    height: 420px;
+    border-radius: 8px;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+/* Historial de partidas */
+.historial-partidas { 
+    background-color: #2a2a4a; 
+    margin: 20px; 
+    padding: 20px; 
+    border-radius: 10px; 
+} 
+
+.historial-partidas h3 { 
+    color: #4d8ee1; 
+    text-align: center; 
+} 
+
+.partida-item { 
+    background-color: #1a1a2e; 
+    margin: 10px 0; 
+    padding: 15px; 
+    border-radius: 8px; 
+    border-left: 5px solid #3066be; 
+} 
+
+.partida-item.ganada { 
+    border-left-color: green; 
+} 
+
+.partida-item.perdida { 
+    border-left-color: red; 
+} 
+
+.kda { 
+    color: #ffcc00; 
+    font-weight: bold; 
+} 
+
+.cargando { 
+    text-align: center; 
+    color: #888; 
+    padding: 20px; 
+}
+
+    
     </style>
 </head>
 <body class="body">
@@ -99,25 +148,30 @@
     </select>
 </div>
 
-<!-- Perfil del jugador -->
-<section class="perfil-of-player">
-    <div class="perfil-img">
-        <img id="profileIcon" src="" alt="Icono">
-    </div>
-    <div class="perfil-datos">
-        <h2 id="playerGameName">Nombre</h2>
-        <p id="playerLevel">Nivel: 0</p>
-        <p id="playerRank">SoloQ: No hay rango</p>
-        <p id="playerFlex">Flex: No hay rango</p>
-    </div>
-</section>
+<section class="contenedor-layout">
 
-<!-- Historial de partidas -->
-<section class="historial-partidas" id="historialPartidas">
-    <h3>Últimas Partidas</h3>
-    <div id="partidasContainer">
-        <div class="cargando">Busca un jugador para ver sus partidas</div>
-    </div>
+    <!-- Perfil del jugador -->
+    <section class="perfil-of-player">
+        <div class="perfil-img">
+            <img id="profileIcon" src="" alt="Icono">
+        </div>
+
+        <div class="perfil-datos">
+            <h2 id="playerGameName">Nombre</h2>
+            <p id="playerRank">SoloQ: …</p>
+            <p id="playerFlex">Flex: …</p>
+            <p id="playerLevel">Nivel: …</p>
+        </div>
+    </section>
+
+    <!-- Historial de partidas -->
+    <section class="historial-partidas">
+        <h3>HISTORIAL DE PARTIDAS</h3>
+        <div id="partidasContainer">
+            <div class="cargando">Busca un jugador para ver sus partidas</div>
+        </div>
+    </section>
+
 </section>
 
 <script>
