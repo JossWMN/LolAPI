@@ -10,7 +10,7 @@
 <body>
 
 <header class="banner">
-    <img src="image/banner.png" alt="Banner">
+    <img src="image/EMBLEMA.png" alt="Banner">
 </header>
 
 <nav class="navbar">
@@ -43,9 +43,8 @@
 <main class="items-grid" id="itemsContainer">
 </main>
 
-<!-- ============================= -->
+
 <!--     MODAL DETALLES ITEM      -->
-<!-- ============================= -->
 <div id="itemModal" class="modal">
     <div class="modal-content">
         <span id="closeModal" class="close">&times;</span>
@@ -62,10 +61,6 @@
         </p>
     </div>
 </div>
-
-<!-- ============================= -->
-<!--            JAVASCRIPT         -->
-<!-- ============================= -->
 <script>
 const version = "14.23.1"; 
 const itemsURL = `https://ddragon.leagueoflegends.com/cdn/${version}/data/en_US/item.json`;
@@ -77,9 +72,7 @@ const itemFilter = document.getElementById("itemFilter");
 
 let allItems = {};
 
-// =====================================
-//               CARGAR ITEMS
-// =====================================
+//cargar ítems desde API
 async function loadItems() {
     try {
         const res = await fetch(itemsURL);
@@ -93,9 +86,7 @@ async function loadItems() {
     }
 }
 
-// =====================================
-//          MOSTRAR ÍTEMS
-// =====================================
+//mostrar items en el contenedor
 function displayItems(items) {
     itemsContainer.innerHTML = "";
 
@@ -115,9 +106,7 @@ function displayItems(items) {
 }
 
 
-// =====================================
-//          FILTRO (AD / AP / TANQUE)
-// =====================================
+//filtro ap/ad/tank
 itemFilter.addEventListener("change", (e) => {
 
     const filter = e.target.value;
@@ -157,9 +146,7 @@ itemFilter.addEventListener("change", (e) => {
 });
 
 
-// =====================================
-//             BUSCADOR
-// =====================================
+//buscador de ítems
 itemSearch.addEventListener("input", (e) => {
     const text = e.target.value.toLowerCase();
 
@@ -173,9 +160,7 @@ itemSearch.addEventListener("input", (e) => {
 });
 
 
-// =====================================
-//         MODAL DETALLES ITEM
-// =====================================
+//detalles del ítem en modal
 const itemModal = document.getElementById("itemModal");
 const closeModal = document.getElementById("closeModal");
 

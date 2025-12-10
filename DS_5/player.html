@@ -6,118 +6,186 @@
     <link rel="stylesheet" href="styles.css">
     <title>Player | LoLInsight</title>
     <style>
-   /* Layout general */
-.contenedor-layout {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 35px;
-    width: 95%;
-    margin: 25px auto;
-}
+        /* Layout general */
+        .contenedor-layout {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 35px;
+            width: 95%;
+            margin: 25px auto;
+        }
 
-/* Perfil */
-.perfil-of-player {
-    width: 38%;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
+        /* Perfil */
+        .perfil-of-player {
+            width: 38%;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
 
-.perfil-img img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background: rgba(39, 6, 39, 0.297);
-    border: 3px solid #bfbfbf;
-}
+        .perfil-img img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(39, 6, 39, 0.297);
+            border: 3px solid #bfbfbf;
+        }
 
-.perfil-datos {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+        .perfil-datos {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
-.perfil-datos h2 {
-    margin: 0;
-    font-size: 22px;
-    font-weight: bold;
-    color: #c8b377;
-}
+        .perfil-datos h2 {
+            margin: 0;
+            font-size: 22px;
+            font-weight: bold;
+            color: #c8b377;
+        }
 
-.perfil-datos p {
-    margin: 3px 0;
-    color: #c8b377;
-}
+        .perfil-datos p {
+            margin: 3px 0;
+            color: #c8b377;
+        }
 
-/* Historial */
-.historial-partidas {
-    width: 55%;
-    background: transparent;
-}
+        /* Historial */
+        .historial-partidas {
+            width: 55%;
+            background: transparent;
+        }
 
-.historial-partidas h3 {
-    text-align: center;
-    color: #c8b377;
-    font-size: 24px;
-    margin-bottom: 10px;
-}
+        .historial-partidas h3 {
+            text-align: center;
+            color: #c8b377;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
 
-#partidasContainer {
-    background: rgba(39, 6, 39, 0.297);
-    height: 420px;
-    border-radius: 8px;
-    padding: 15px;
-    overflow-y: auto;
-}
+        #partidasContainer {
+            background: rgba(39, 6, 39, 0.297);
+            height: 420px;
+            border-radius: 8px;
+            padding: 15px;
+            overflow-y: auto;
+        }
 
-/* Historial de partidas */
-.historial-partidas { 
-    background-color: #2a2a4a; 
-    margin: 20px; 
-    padding: 20px; 
-    border-radius: 10px; 
-} 
+        /* Historial de partidas */
+        .historial-partidas { 
+            background-color: #2a2a4a; 
+            margin: 20px; 
+            padding: 20px; 
+            border-radius: 10px; 
+        } 
 
-.historial-partidas h3 { 
-    color: #4d8ee1; 
-    text-align: center; 
-} 
+        .historial-partidas h3 { 
+            color: #4d8ee1; 
+            text-align: center; 
+        } 
 
-.partida-item { 
-    background-color: #1a1a2e; 
-    margin: 10px 0; 
-    padding: 15px; 
-    border-radius: 8px; 
-    border-left: 5px solid #3066be; 
-} 
+        .partida-item { 
+            background-color: #1a1a2e; 
+            margin: 10px 0; 
+            padding: 15px; 
+            border-radius: 8px; 
+            border-left: 5px solid #3066be; 
+        } 
 
-.partida-item.ganada { 
-    border-left-color: green; 
-} 
+        .partida-item.ganada { 
+            border-left-color: green; 
+        } 
 
-.partida-item.perdida { 
-    border-left-color: red; 
-} 
+        .partida-item.perdida { 
+            border-left-color: red; 
+        } 
 
-.kda { 
-    color: #ffcc00; 
-    font-weight: bold; 
-} 
+        .kda { 
+            color: #ffcc00; 
+            font-weight: bold; 
+        } 
 
-.cargando { 
-    text-align: center; 
-    color: #888; 
-    padding: 20px; 
-}
+        .cargando { 
+            text-align: center; 
+            color: #888; 
+            padding: 20px; 
+        }
 
-    
+        /* Buscador */
+        .busqueda {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin: 20px auto;
+            padding: 15px;
+            background: rgba(39, 6, 39, 0.297);
+            border-radius: 10px;
+            width: 80%;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .search-box input {
+            padding: 8px 12px;
+            border: 1px solid #c8b377;
+            border-radius: 5px;
+            background: #1a1a2e;
+            color: white;
+            font-size: 14px;
+        }
+
+        .search-box button {
+            padding: 8px 20px;
+            background: #4d8ee1;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .search-box button:hover {
+            background: #3066be;
+        }
+
+        #roleFiltro {
+            padding: 8px 12px;
+            background: #1a1a2e;
+            color: white;
+            border: 1px solid #c8b377;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+            margin: 10px;
+            padding: 10px;
+            background: rgba(255, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .info-filtro {
+            color: #4d8ee1;
+            text-align: center;
+            margin: 10px;
+            padding: 10px;
+            background: rgba(77, 142, 225, 0.1);
+            border-radius: 5px;
+            font-style: italic;
+        }
     </style>
 </head>
 <body class="body">
-<!-- BANNER -->
+    <!-- BANNER -->
     <header class="banner">
-        <img src="image/banner.png" alt="Banner">
+        <img src="image/EMBLEMA.png" alt="Banner">
     </header>
 
     <!-- NAVBAR -->
@@ -132,349 +200,539 @@
     </nav>
 
     <!-- Buscador -->
-<div class="busqueda">
-    <div class="search-box">
-        <input type="text" id="BuscarInput" placeholder="Nombre del jugador">
-        <input type="text" id="tagLineInput" placeholder="Etiqueta (ej: LAS)">
-        <button onclick="buscarJugador()">Buscar</button>
+    <div class="busqueda">
+        <div class="search-box">
+            <input type="text" id="nombreInput" placeholder="Nombre del jugador (ej: Carlos)">
+            <input type="text" id="tagLineInput" placeholder="Etiqueta (ej: LAN)">
+            <button onclick="buscarJugador()">Buscar</button>
+        </div>
+
+        <!-- filtro de las partidas-->
+        <select id="roleFiltro" onchange="filtrarPartidas()">
+            <option value="all">Todas las partidas</option>
+            <option value="ranked">SoloQ</option>
+            <option value="flex">Flex</option>
+            <option value="normal">Normal</option>
+            <option value="aram">ARAM</option>
+        </select>
     </div>
+    <!-- Contenedor principal -->
+    <section class="contenedor-layout">
+        <section class="perfil-of-player">
+            <div class="perfil-img">
+                <img id="profileIcon" src="" alt="Icono" style="display: none;">
+            </div>
 
-    <!-- Filtro de partidas -->
-    <select id="roleFiltro">
-        <option value="all">Todos</option>
-        <option value="solo">SoloQ</option>
-        <option value="flex">Flex</option>
-        <option value="draf">Normal</option>
-    </select>
-</div>
-
-<section class="contenedor-layout">
-
-    <!-- Perfil del jugador -->
-    <section class="perfil-of-player">
-        <div class="perfil-img">
-            <img id="profileIcon" src="" alt="Icono">
-        </div>
-
-        <div class="perfil-datos">
-            <h2 id="playerGameName">Nombre</h2>
-            <p id="playerRank">SoloQ: …</p>
-            <p id="playerFlex">Flex: …</p>
-            <p id="playerLevel">Nivel: …</p>
-        </div>
+            <div class="perfil-datos">
+                <h2 id="playerGameName">Busca un jugador</h2>
+                <p id="soloQTexto">SoloQ: -</p>
+                <p id="flexTexto">Flex: -</p>
+                <p id="playerLevel">Nivel: -</p>
+            </div>
+        </section>
+<!-- contendedor para el historial de partidas -->
+        <section class="historial-partidas">
+            <h3>HISTORIAL DE PARTIDAS</h3>
+            <div id="partidasContainer">
+                <div class="cargando">Busca un jugador para ver sus partidas</div>
+            </div>
+        </section>
     </section>
 
-    <!-- Historial de partidas -->
-    <section class="historial-partidas">
-        <h3>HISTORIAL DE PARTIDAS</h3>
-        <div id="partidasContainer">
-            <div class="cargando">Busca un jugador para ver sus partidas</div>
-        </div>
-    </section>
+<script>ç
+//---------ACTUALIZAR EL API KEY---------
+const API_KEY = "RGAPI-b9faa934-ce66-4dd8-8d6c-ee2d796b8cd4"; 
 
-</section>
+// Variables globales para almacenar datos
+let todasLasPartidas = [];
+let puuidActual = "";
+let tagActual = "";
 
-<script>
-    // API Key
-    const API_KEY = "RGAPI-4bd2c667-87ab-476c-931f-e692bd098c81";
+// Función para mostrar errores
+function mostrarError(mensaje) {
+    const cont = document.getElementById("partidasContainer");
+    cont.innerHTML = `<div class="error">${mensaje}</div>`;
+}
+
+// Mapa de regiones para Platform Routing Value (para Summoner-V4)
+function obtenerRegionParaSummoner(tag) {
+    tag = tag.toUpperCase();
     
-    // Guardamos datos del jugador
-    let puuidJugador = null; // <= Esta variable es IMPORTANTE, porque guarda el PUUID del jugador
-    let regionJugador = "";
-    let tagRegion = "";
+    const regiones = {
+        "LAN": "la1",
+        "LAS": "la2",
+        "NA": "na1",
+        "BR": "br1",
+        "EUW": "euw1",
+        "EUNE": "eun1",
+        "KR": "kr",
+        "JP": "jp1",
+        "RU": "ru",
+        "TR": "tr1",
+        "OCE": "oc1"
+    };
     
-    // Función cuando apretas Buscar
-    async function buscarJugador() {
-        // Sacar lo que escribiste
-        const nombre = document.getElementById("BuscarInput").value.trim();
-        const tag = document.getElementById("tagLineInput").value.trim();
-        const filtro = document.getElementById("roleFiltro").value;
-        
-        // Ver si escribiste algo
-        if (!nombre || !tag) {
-            alert("Escribe nombre y etiqueta");
-            return;
-        }
-        
-        tagRegion = tag.toUpperCase();
-        
-        // Poner "cargando"
-        document.getElementById("playerGameName").textContent = "Buscando...";
-        document.getElementById("playerLevel").textContent = "Nivel: ...";
-        document.getElementById("playerRank").textContent = "SoloQ: ...";
-        document.getElementById("playerFlex").textContent = "Flex: ...";
-        
-        try {
-            console.log("1. Buscando PUUID...");
-            // A - Buscar ID del jugador
-            puuidJugador = await buscarPUUID(nombre, tag); // <= Guardamps aqui
-            console.log("PUUID encontrado:", puuidJugador);
-            
-            // B - Determinar región
-            regionJugador = determinarRegion(tag);
-            console.log("Región determinada:", regionJugador);
-            
-            console.log("2. Obteniendo datos del jugador...");
-            // C - Obtener datos del jugador
-            const datosJugador = await obtenerDatosJugador(puuidJugador, regionJugador);
-            console.log("ID del jugador para rango:", datosJugador.id);
-            
-            console.log("3. Obteniendo rango...");
-            // D - Obtener rango 
-            const datosRango = await obtenerRango(datosJugador.id, regionJugador);
-            console.log("Datos rango recibidos:", datosRango);
-            
-            // E - Mostrar todo
-            mostrarPerfil(nombre, tag, datosJugador, datosRango);
-            
-            console.log("4. Obteniendo partidas...");
-            // F - Obtener y mostrar partidas
-            const partidas = await obtenerPartidas(puuidJugador, filtro);
-            console.log("IDs de partidas:", partidas);
-            await mostrarPartidas(partidas);
-            
-        } catch (error) {
-            console.error("Error completo:", error);
-            alert("Error: " + error.message);
-            document.getElementById("playerGameName").textContent = "Error";
-        }
-    }
+    return regiones[tag] || "la1";
+}
+
+// Mapa para Regional Routing Value (para Match-V5)
+function obtenerRegionParaMatches(tag) {
+    tag = tag.toUpperCase();
     
-    // Determinar región del jugador
-    function determinarRegion(tag) {
-        const tagUpper = tag.toUpperCase();
-        
-        if (tagUpper === "LAN") return "la1";
-        if (tagUpper === "LAS") return "la2";
-        if (tagUpper === "NA" || tagUpper === "NA1") return "na1";
-        if (tagUpper === "BR" || tagUpper === "BR1") return "br1";
-        if (tagUpper === "EUW") return "euw1";
-        if (tagUpper === "EUNE") return "eun1";
-        if (tagUpper === "KR") return "kr";
-        if (tagUpper === "RU") return "ru";
-        if (tagUpper === "TR") return "tr1";
-        if (tagUpper === "OCE" || tagUpper === "OC1") return "oc1";
-        if (tagUpper === "JP" || tagUpper === "JP1") return "jp1";
-        
-        console.log("Tag no reconocido, usando LAS por defecto");
-        return "la2";
-    }
+    const regiones = {
+        "LAN": "americas",
+        "LAS": "americas",
+        "NA": "americas",
+        "BR": "americas",
+        "EUW": "europe",
+        "EUNE": "europe",
+        "KR": "asia",
+        "JP": "asia",
+        "RU": "europe",
+        "TR": "europe",
+        "OCE": "sea"
+    };
     
-    // Buscar ID del jugador
-    async function buscarPUUID(nombre, tag) {
-        const url = `https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${nombre}/${tag}?api_key=${API_KEY}`;
-        
-        const respuesta = await fetch(url);
+    return regiones[tag] || "americas";
+}
+
+// Rangos en español
+const rangosEspañol = {
+    "IRON": "Hierro",
+    "BRONZE": "Bronce", 
+    "SILVER": "Plata",
+    "GOLD": "Oro",
+    "PLATINUM": "Platino",
+    "EMERALD": "Esmeralda",
+    "DIAMOND": "Diamante",
+    "MASTER": "Maestro",
+    "GRANDMASTER": "Gran Maestro",
+    "CHALLENGER": "Retador"
+};
+
+// Función para mostrar errores
+function mostrarError(mensaje) {
+    const cont = document.getElementById("partidasContainer");
+    cont.innerHTML = `<div class="error">${mensaje}</div>`;
+}
+
+// 1. Obtener cuenta por Riot ID (Account-V1)
+async function obtenerCuentaPorRiotID(nombre, tag) {
+    const region = obtenerRegionParaMatches(tag);
+    const url = `https://${region}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${nombre}/${tag}`;
+    
+    try {
+        const respuesta = await fetch(url, {
+            headers: {
+                "X-Riot-Token": API_KEY
+            }
+        });
         
         if (!respuesta.ok) {
-            if (respuesta.status === 403) {
-                throw new Error("API Key mala o expirada. Genera una nueva");
-            }
-            if (respuesta.status === 404) {
-                throw new Error("Jugador no encontrado");
-            }
-            throw new Error("Error al buscar jugador");
+            throw new Error("Jugador no encontrado. Verifica el nombre y tag.");
         }
         
         const datos = await respuesta.json();
-        return datos.puuid;
+        return datos;
+    } catch (error) {
+        console.error("Error al obtener cuenta:", error);
+        throw error;
     }
+}
+
+// 2. Obtener invocador por PUUID (Summoner-V4)
+async function obtenerInvocadorPorPUUID(puuid, tag) {
+    const region = obtenerRegionParaSummoner(tag);
+    const url = `https://${region}.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${puuid}`;
     
-    // Obtener datos del jugador
-    async function obtenerDatosJugador(puuid, region) {
-        const url = `https://${region}.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${puuid}?api_key=${API_KEY}`;
-        
-        const respuesta = await fetch(url);
-        if (!respuesta.ok) {
-            throw new Error("Error al obtener datos del jugador");
-        }
-        
-        return await respuesta.json();
-    }
-    
-    // OBTENER RANGO con el endpoint correcto.
-    async function obtenerRango(idJugador, region) {
-        // URL CORREGIDA: usando el endpoint correcto 'by-summoner'
-        const url = `https://${region}.api.riotgames.com/lol/league/v4/entries/by-summoner/${idJugador}?api_key=${API_KEY}`;
-        console.log("URL para rango:", url);
-        
-        const respuesta = await fetch(url);
-        if (!respuesta.ok) {
-            console.log("Error al obtener rango, status:", respuesta.status);
-            return []; // Devuelve array vacío si no hay rango
-        }
-        
-        return await respuesta.json();
-    }
-    
-    // Obtener partidas
-    async function obtenerPartidas(puuid, tipo) {
-        let tipoPartida = "";
-        
-        if (tipo === "solo") tipoPartida = "ranked";
-        else if (tipo === "flex") tipoPartida = "ranked_flex";
-        else if (tipo === "draf") tipoPartida = "normal";
-        
-        // Determinar cluster regional para partidas
-        let clusterRegional = "americas";
-        
-        if (regionJugador === "la1" || regionJugador === "la2" || 
-            regionJugador === "na1" || regionJugador === "br1") {
-            clusterRegional = "americas";
-        } else if (regionJugador === "euw1" || regionJugador === "eun1" || 
-                   regionJugador === "ru" || regionJugador === "tr1") {
-            clusterRegional = "europe";
-        } else if (regionJugador === "kr" || regionJugador === "jp1") {
-            clusterRegional = "asia";
-        } else if (regionJugador === "oc1") {
-            clusterRegional = "sea";
-        }
-        
-        let url = "";
-        
-        if (tipoPartida) {
-            url = `https://${clusterRegional}.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?type=${tipoPartida}&start=0&count=3&api_key=${API_KEY}`;
-        } else {
-            url = `https://${clusterRegional}.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=3&api_key=${API_KEY}`;
-        }
-        
-        console.log("URL para partidas:", url);
-        
-        const respuesta = await fetch(url);
-        if (!respuesta.ok) {
-            console.log("Error al obtener partidas:", respuesta.status);
-            return [];
-        }
-        
-        return await respuesta.json();
-    }
-    
-    // Mostrar perfil
-    function mostrarPerfil(nombre, tag, datosJugador, datosRango) {
-        // Mostrar nombre
-        document.getElementById("playerGameName").textContent = nombre + "#" + tag;
-        
-        // Mostrar nivel
-        document.getElementById("playerLevel").textContent = "Nivel: " + datosJugador.summonerLevel;
-        
-        // Mostrar icono
-        const icono = document.getElementById("profileIcon");
-        if (icono && datosJugador.profileIconId) {
-            icono.src = `https://ddragon.leagueoflegends.com/cdn/14.23.1/img/profileicon/${datosJugador.profileIconId}.png`;
-        }
-        
-        // Inicializar rangos
-        let soloq = "No rankeado";
-        let flex = "No rankeado";
-        
-        // Si hay datos de rango
-        if (datosRango && Array.isArray(datosRango)) {
-            for (let i = 0; i < datosRango.length; i++) {
-                const r = datosRango[i];
-                
-                // SoloQ
-                if (r.queueType === "RANKED_SOLO_5x5") {
-                    soloq = r.tier + " " + r.rank + " (" + r.leaguePoints + " LP)";
-                }
-                
-                // Flex
-                if (r.queueType === "RANKED_FLEX_SR") {
-                    flex = r.tier + " " + r.rank + " (" + r.leaguePoints + " LP)";
-                }
+    try {
+        const respuesta = await fetch(url, {
+            headers: {
+                "X-Riot-Token": API_KEY
             }
+        });
+        
+        if (!respuesta.ok) {
+            throw new Error("No se pudo obtener datos del invocador.");
         }
         
-        // Mostrar rangos
-        document.getElementById("playerRank").textContent = "SoloQ: " + soloq;
-        document.getElementById("playerFlex").textContent = "Flex: " + flex;
+        const datos = await respuesta.json();
+        return datos;
+    } catch (error) {
+        console.error("Error al obtener invocador:", error);
+        throw error;
+    }
+}
+// 3. Obtener rangos del jugador (League-V4) usando PUUID
+async function obtenerRangos(puuid, tag) {
+    const region = obtenerRegionParaSummoner(tag);
+    const url = `https://${region}.api.riotgames.com/lol/league/v4/entries/by-puuid/${puuid}`;
+
+    console.log("Obteniendo rangos desde:", url);
+
+    try {
+        const respuesta = await fetch(url, {
+            headers: {
+                "X-Riot-Token": API_KEY
+            }
+        });
+
+        if (!respuesta.ok) {
+            console.log("Error en respuesta de rangos:", respuesta.status, respuesta.statusText);
+            return []; // Jugador no rankeado o error
+        }
+
+        const datos = await respuesta.json();
+        console.log("Datos de rangos recibidos:", datos);
+        return datos;
+    } catch (error) {
+        console.error("Error al obtener rangos:", error);
+        return [];
+    }
+}
+
+
+// 4. Obtener IDs de partidas (Match-V5) - Más partidas para filtrar
+async function obtenerIDsPartidas(puuid, tag, cantidad = 20) {
+    const region = obtenerRegionParaMatches(tag);
+    const url = `https://${region}.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=${cantidad}`;
+    
+    try {
+        const respuesta = await fetch(url, {
+            headers: {
+                "X-Riot-Token": API_KEY
+            }
+        });
+        
+        if (!respuesta.ok) {
+            throw new Error("No se pudieron obtener las partidas.");
+        }
+        
+        const datos = await respuesta.json();
+        return datos;
+    } catch (error) {
+        console.error("Error al obtener IDs de partidas:", error);
+        throw error;
+    }
+}
+
+// 5. Obtener datos de una partida específica (Match-V5)
+async function obtenerDatosPartida(matchId, tag) {
+    const region = obtenerRegionParaMatches(tag);
+    const url = `https://${region}.api.riotgames.com/lol/match/v5/matches/${matchId}`;
+    
+    try {
+        const respuesta = await fetch(url, {
+            headers: {
+                "X-Riot-Token": API_KEY
+            }
+        });
+        
+        if (!respuesta.ok) {
+            throw new Error("No se pudieron obtener datos de la partida.");
+        }
+        
+        const datos = await respuesta.json();
+        return datos;
+    } catch (error) {
+        console.error("Error al obtener datos de partida:", error);
+        throw error;
+    }
+}
+
+// Función para determinar el tipo de cola
+function obtenerTipoCola(queueId) {
+    // Mapeo de queueId a tipos de cola según la API de Riot
+    const tiposCola = {
+        400: "normal",        // Draft Pick
+        420: "ranked",        // SoloQ
+        430: "normal",        // Blind Pick
+        440: "flex",          // Flex
+        450: "aram",          // ARAM
+        700: "clash",         // Clash
+        830: "coop",          // Co-op vs AI
+        840: "coop",          // Co-op vs AI
+        850: "coop",          // Co-op vs AI
+        900: "urf",           // URF
+        1020: "oneforall",    // One for All
+        1300: "nburn",        // Nexus Blitz
+        1400: "ultimate",     // Ultimate Spellbook
+        1900: "urf"           // URF
+    };
+    
+    return tiposCola[queueId] || "otro";
+}
+
+// Función para obtener nombre amigable del tipo de cola
+function obtenerNombreCola(queueId) {
+    const nombresCola = {
+        400: "Normal Draft",
+        420: "Ranked Solo/Duo",
+        430: "Normal Blind",
+        440: "Ranked Flex",
+        450: "ARAM",
+        700: "Clash",
+        830: "Co-op vs AI",
+        840: "Co-op vs AI",
+        850: "Co-op vs AI",
+        900: "URF",
+        1020: "One for All",
+        1300: "Nexus Blitz",
+        1400: "Ultimate Spellbook",
+        1900: "URF"
+    };
+    
+    return nombresCola[queueId] || `Queue ${queueId}`;
+}
+
+// Esta función AHORA espera que "rangos" ya sea el array que viene de la API
+function mostrarRangos(rangos) {
+
+    let soloQTexto = null;
+    let flexTexto = null;
+
+    console.log("Rangos recibidos en mostrarRangos:", rangos);
+
+    if (rangos && Array.isArray(rangos) && rangos.length > 0) {
+
+        rangos.forEach(rango => {
+            console.log("Procesando rango:", rango);
+
+            const tier = rango.tier;           // Ej: "GOLD"
+            const rank = rango.rank || "";     // Ej: "II"
+            const lp   = rango.leaguePoints;   // Ej: 75
+
+            const texto = `${tier} ${rank} - ${lp} LP`;
+
+            if (rango.queueType === "RANKED_SOLO_5x5") {
+                soloQTexto = texto;
+            }
+
+            if (rango.queueType === "RANKED_FLEX_SR") {
+                flexTexto = texto;
+            }
+        });
+
+    } else {
+        console.log("No se encontraron rangos para este jugador");
+    }
+
+    // Actualizar el HTML
+    const soloQTextoSpan = document.getElementById("soloQTexto");
+    const soloQIconoImg  = document.getElementById("soloQIcono");
+    const flexTextoSpan  = document.getElementById("flexTexto");
+    const flexIconoImg   = document.getElementById("flexIcono");
+
+    if (soloQTextoSpan) {
+        soloQTextoSpan.textContent = soloQTexto || "-";
+    }
+    if (soloQIconoImg && soloQIcono) {
+        soloQIconoImg.src = soloQIcono;
+    }
+
+    if (flexTextoSpan) {
+        flexTextoSpan.textContent = flexTexto || "-";
+    }
+    if (flexIconoImg && flexIcono) {
+        flexIconoImg.src = flexIcono;
+    }
+}
+
+// Mostrar información del perfil
+function mostrarPerfil(cuenta, invocador, rangos) {
+    document.getElementById("playerGameName").textContent = `${cuenta.gameName}#${cuenta.tagLine}`;
+    document.getElementById("playerLevel").textContent = `Nivel: ${invocador.summonerLevel}`;
+    
+    const iconoImg = document.getElementById("profileIcon");
+    iconoImg.src = `https://ddragon.leagueoflegends.com/cdn/14.23.1/img/profileicon/${invocador.profileIconId}.png`;
+    iconoImg.style.display = "block";
+    
+     mostrarRangos(rangos);
+}
+
+// Mostrar historial de partidas con filtro
+function mostrarHistorial(filtro = "all") {
+    const contenedor = document.getElementById("partidasContainer");
+    
+    if (todasLasPartidas.length === 0) {
+        contenedor.innerHTML = '<div class="cargando">No hay partidas para mostrar</div>';
+        return;
     }
     
-    // Mostrar partidas recientes
-    async function mostrarPartidas(idsPartidas) {
-        const container = document.getElementById("partidasContainer");
+    // Filtrar partidas según el filtro seleccionado
+    let partidasFiltradas = todasLasPartidas;
+    
+    if (filtro !== "all") {
+        partidasFiltradas = todasLasPartidas.filter(partida => {
+            const tipoCola = obtenerTipoCola(partida.info.queueId);
+            return tipoCola === filtro;
+        });
+    }
+    
+    // Actualizar contador
+    const filtroSelect = document.getElementById("roleFiltro");
+    const filtroTexto = filtroSelect.options[filtroSelect.selectedIndex].text;
+    
+    if (partidasFiltradas.length === 0) {
+        contenedor.innerHTML = `
+            <div class="info-filtro">
+                No hay partidas de tipo "${filtroTexto}" en las últimas ${todasLasPartidas.length} partidas
+            </div>
+        `;
+        return;
+    }
+    
+    // Mostrar información del filtro
+    let infoFiltro = "";
+    if (filtro !== "all") {
+        infoFiltro = `<div class="info-filtro">Mostrando ${partidasFiltradas.length} partidas de ${filtroTexto} (de ${todasLasPartidas.length} totales)</div>`;
+    } else {
+        infoFiltro = `<div class="info-filtro">Mostrando ${partidasFiltradas.length} partidas más recientes</div>`;
+    }
+    
+    contenedor.innerHTML = infoFiltro;
+    
+    // Mostrar cada partida
+    partidasFiltradas.forEach(partida => {
+        const info = partida.info;
+        const participante = info.participants.find(p => p.puuid === puuidActual);
         
-        if (!idsPartidas || idsPartidas.length === 0) {
-            container.innerHTML = '<div class="cargando">No hay partidas recientes</div>';
+        if (!participante) return;
+        
+        const victoria = participante.win;
+        const kda = `${participante.kills}/${participante.deaths}/${participante.assists}`;
+        const ratioKDA = participante.deaths === 0 ? 
+            "Perfecto" : 
+            ((participante.kills + participante.assists) / participante.deaths).toFixed(2);
+        
+        // Calcular duración
+        const minutos = Math.floor(info.gameDuration / 60);
+        const segundos = Math.floor(info.gameDuration % 60);
+        
+        // Obtener tipo de cola
+        const nombreCola = obtenerNombreCola(info.queueId);
+        const tipoCola = obtenerTipoCola(info.queueId);
+        
+        const divPartida = document.createElement("div");
+        divPartida.className = `partida-item ${victoria ? "ganada" : "perdida"}`;
+        
+        // Icono según tipo de cola
+        let iconoCola = "";
+        if (tipoCola === "ranked") iconoCola = "";
+        if (tipoCola === "flex") iconoCola = "";
+        if (tipoCola === "aram") iconoCola = "";
+        if (tipoCola === "normal") iconoCola = "";
+        
+        divPartida.innerHTML = `
+            <h4>${iconoCola} ${victoria ? "🏆 Victoria" : "💀 Derrota"} - ${nombreCola}</h4>
+            <p><strong>Campeón:</strong> ${participante.championName}</p>
+            <p><strong>KDA:</strong> <span class="kda">${kda}</span> (Ratio: ${ratioKDA})</p>
+            <p><strong>Duración:</strong> ${minutos}:${segundos.toString().padStart(2, '0')}</p>
+            <p><strong>CS:</strong> ${participante.totalMinionsKilled} (${participante.csPerMinute?.toFixed(1) || "?"} CS/min)</p>
+            <p><strong>Daño:</strong> ${participante.totalDamageDealtToChampions?.toLocaleString() || "N/A"}</p>
+        `;
+        
+        contenedor.appendChild(divPartida);
+    });
+}
+
+// Función para aplicar filtro
+function filtrarPartidas() {
+    const filtro = document.getElementById("roleFiltro").value;
+    mostrarHistorial(filtro);
+}
+
+// Función principal de búsqueda
+async function buscarJugador() {
+    try {
+        // Obtener valores de los inputs
+        const nombre = document.getElementById("nombreInput").value.trim();
+        const tag = document.getElementById("tagLineInput").value.trim();
+        
+        if (!nombre || !tag) {
+            mostrarError("Por favor, ingresa tanto el nombre como la etiqueta del jugador.");
             return;
         }
         
-        let html = "";
+        // Guardar tag actual
+        tagActual = tag;
         
-        for (let i = 0; i < Math.min(2, idsPartidas.length); i++) {
-            try {
-                const partida = await obtenerDetallesPartida(idsPartidas[i]);
-                
-                if (partida && partida.info && partida.info.participants) {
-                    // Buscar al jugador usando puuidJugador
-                    let jugador = null;
-                    for (let p of partida.info.participants) {
-                        if (p.puuid === puuidJugador) { // Usando el puuidJugador
-                            jugador = p;
-                            break;
-                        }
-                    }
-                    
-                    if (jugador) {
-                        const ganada = jugador.win ? "ganada" : "perdida";
-                        const resultado = jugador.win ? 'GANÓ' : 'PERDIÓ';
-                        
-                        html += `
-                            <div class="partida-item ${ganada}">
-                                <div><strong>${resultado}</strong></div>
-                                <div>Campeón: ${jugador.championName || "Desconocido"}</div>
-                                <div class="kda">K/D/A: ${jugador.kills}/${jugador.deaths}/${jugador.assists}</div>
-                                <div>CS: ${jugador.totalMinionsKilled || 0}</div>
-                            </div>
-                        `;
-                    }
-                }
-            } catch (e) {
-                console.log("Error en partida:", e);
-                html += '<div class="partida-item error">Error cargando partida</div>';
+        // Mostrar "cargando..."
+        const contenedor = document.getElementById("partidasContainer");
+        contenedor.innerHTML = '<div class="cargando">Buscando jugador...</div>';
+        
+        console.log(`Buscando: ${nombre}#${tag}`);
+        
+        // PASO 1: Obtener cuenta
+        console.log("PASO 1: Obteniendo cuenta...");
+        const cuenta = await obtenerCuentaPorRiotID(nombre, tag);
+        console.log("Cuenta obtenida:", cuenta);
+        
+        // Guardar puuid actual
+        puuidActual = cuenta.puuid;
+        
+        // PASO 2: Obtener invocador
+        console.log("PASO 2: Obteniendo invocador...");
+        const invocador = await obtenerInvocadorPorPUUID(cuenta.puuid, tag);
+        console.log("Invocador obtenido:", invocador);
+        
+        // PASO 3: Obtener rangos
+        console.log("PASO 3: Obteniendo rangos...");
+        const rangos = await obtenerRangos(invocador.puuid, tag);
+        console.log("Rangos obtenidos:", rangos);
+        
+        // Mostrar perfil
+        mostrarPerfil(cuenta, invocador, rangos);
+        
+        // PASO 4: Obtener más partidas para filtrar mejor
+        console.log("PASO 4: Obteniendo partidas...");
+        const idsPartidas = await obtenerIDsPartidas(cuenta.puuid, tag, 20);
+        console.log("IDs de partidas obtenidos:", idsPartidas.length);
+        
+        // Obtener datos de cada partida
+        todasLasPartidas = []; 
+        contenedor.innerHTML = '<div class="cargando">Cargando partidas... 0/' + idsPartidas.length + '</div>';
+        
+        for (let i = 0; i < idsPartidas.length; i++) {
+            const id = idsPartidas[i];
+            console.log(`Obteniendo partida ${i+1}/${idsPartidas.length}: ${id}`);
+            
+            // Actualizar progreso
+            if ((i + 1) % 5 === 0 || i === 0) {
+                contenedor.innerHTML = `<div class="cargando">Cargando partidas... ${i+1}/${idsPartidas.length}</div>`;
             }
+            
+            const datosPartida = await obtenerDatosPartida(id, tag);
+            todasLasPartidas.push(datosPartida);
         }
         
-        container.innerHTML = html || '<div class="cargando">Error en partidas</div>';
+        console.log("Partidas obtenidas:", todasLasPartidas.length);
+        
+        // Resetear filtro a "todas"
+        document.getElementById("roleFiltro").value = "all";
+        
+        // Mostrar todas las partidas inicialmente
+        mostrarHistorial("all");
+        
+    } catch (error) {
+        console.error("Error en la búsqueda:", error);
+        mostrarError(`Error: ${error.message}`);
     }
-    
-    // Obtener detalles de partida
-    async function obtenerDetallesPartida(matchId) {
-        // Determinar cluster (igual que en obtenerPartidas)
-        let clusterRegional = "americas";
-        
-        if (regionJugador === "la1" || regionJugador === "la2" || 
-            regionJugador === "na1" || regionJugador === "br1") {
-            clusterRegional = "americas";
-        } else if (regionJugador === "euw1" || regionJugador === "eun1" || 
-                   regionJugador === "ru" || regionJugador === "tr1") {
-            clusterRegional = "europe";
-        } else if (regionJugador === "kr" || regionJugador === "jp1") {
-            clusterRegional = "asia";
-        } else if (regionJugador === "oc1") {
-            clusterRegional = "sea";
-        }
-        
-        const url = `https://${clusterRegional}.api.riotgames.com/lol/match/v5/matches/${matchId}?api_key=${API_KEY}`;
-        
-        const respuesta = await fetch(url);
-        if (!respuesta.ok) {
-            console.log("Error en detalles partida:", respuesta.status);
-            return null;
-        }
-        
-        return await respuesta.json();
-    }
-    
-    // Filtrar partidas
-    document.getElementById('roleFiltro').addEventListener('change', function() {
-        if (puuidJugador) {
-            const filtro = this.value;
-            obtenerPartidas(puuidJugador, filtro).then(mostrarPartidas);
-        }
+}
+
+// Event listener para Enter
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('nombreInput').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') buscarJugador();
     });
-
-console.log("Script cargado. API Key:", API_KEY ? "Sí" : "No");
-
+    
+    document.getElementById('tagLineInput').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') buscarJugador();
+    });
+    
+    console.log("¡Listo para buscar jugadores! 🎮");
+});
 </script>
+
 </body>
 </html>
